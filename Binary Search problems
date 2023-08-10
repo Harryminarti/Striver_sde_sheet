@@ -1,1 +1,50 @@
 
+Q. Coco Eating bananas problem?
+
+soln: 
+
+import java.util.*;
+public class Solution {
+
+
+public static int find_hours(int v[],int h){
+
+    int total_h =0;
+
+    for(int i=0;i<v.length;i++){
+        total_h += Math.ceil((double)v[i]/(double)h);
+    }
+return total_h;
+
+
+}
+
+
+    public static int minimumRateToEatBananas(int []v, int h) {
+        // Write Your Code Here
+
+        Arrays.sort(v);
+        int start=1,end=v[v.length-1];
+
+
+        while(start<=end){
+
+            int mid = start+(end-start)/2;
+
+            int total_hours = find_hours(v,mid);
+
+
+            if(h>=total_hours){
+                end=mid-1;
+            }else start= mid+1;
+
+
+
+        }
+
+
+return start;
+
+
+    }
+}
